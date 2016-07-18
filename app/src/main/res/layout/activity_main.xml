@@ -14,18 +14,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/off"
-        android:layout_above="@+id/btnSwitch"
+        android:layout_above="@+id/tglSwitch"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
+    <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSwitch"
+        android:text="New ToggleButton"
+        android:id="@+id/tglSwitch"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="46dp"
-        android:text="OFF" />
+        android:checked="false" />
 
 
 </RelativeLayout>

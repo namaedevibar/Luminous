@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.view.View.OnClickListener;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         addListenerOnButton();
     }
 
-    private Button mbtn;
+    private ToggleButton mbtn;
     private ImageView mImage1;
     private ImageView mImage2;
 
@@ -24,29 +26,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void addListenerOnButton(){
         mImage1 = (ImageView) findViewById(R.id.off);
-        mbtn = (Button) findViewById(R.id.btnSwitch);
+        mbtn = (ToggleButton) findViewById(R.id.tglSwitch);
 
+      mbtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+          @Override
+          public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+              if(mbtn.isChecked()){
+                  mImage1.setImageResource(R.drawable.on);
+              }
+              else{
 
-        mbtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (mbtn.getText()=="ON"){
-                    mImage1.setImageResource(R.drawable.on);
-                    mbtn.setText("Off");
-                }
-                else {
-                    mImage1.setImageResource(R.drawable.off);
-                    mbtn.setText("ON");
-
-                }
-
-
-
-
-
-            }
-        });
+                  mImage1.setImageResource(R.drawable.off);
+              }
+          }
+      });
 
 
     }
